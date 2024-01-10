@@ -4,6 +4,7 @@ from datasets import load_dataset
 import os
 import torchtext
 from transformers import AutoTokenizer
+import itertools
 
 def das_huggingface_pirater():
     """Pirates the huggingface library
@@ -43,10 +44,14 @@ def dataset_preprocessor(data_path):
     
 
 def make_extended_vocab(data, model_name='bert'):
+    """
+    Assume 'data' is file loadable by pytorch that is in some way a list of lists of tokenized words  
+    """
+
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
     data = torch.load(data)
     tokenizer.add_tokens
-
+    new_words = set(itertools.chain(*data))
 
 if __name__ == '__main__':
 
