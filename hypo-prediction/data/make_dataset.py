@@ -3,7 +3,7 @@ import torch
 from datasets import load_dataset
 import os
 import torchtext
-
+from transformers import AutoTokenizer
 
 def das_huggingface_pirater():
     """Pirates the huggingface library
@@ -19,27 +19,43 @@ def das_huggingface_pirater():
             pd.DataFrame(list(zip(*[dataset[dset][i] for i in columns])), columns=columns).to_csv(f'data/raw/{dset}.csv')
 
 def dataset_preprocessor(data_path):
-     # 1. Cast to tensors
-     # 2. Tokenize in some way
-     # 3. 
-    
+
     data = pd.read_csv(f'data/raw/{data_path}.csv')
     tokenizer = torchtext.data.get_tokenizer('basic_english')
 
     data[['premise', 'hypothesis']] = data[['premise', 'hypothesis']].astype(str).map(tokenizer)
 
-    # So needlessly complicated because pandas is stupid and keeps the index
-    vocab = torchtext.vocab.build_vocab_from_iterator([i[1] for i in data['premise']._append(data['hypothesis'],
-                                                                                              ignore_index=True).astype(str).items()])
-    
-    data[['premise', 'hypothesis']] = data[['premise', 'hypothesis']].map(vocab)
+    combined_with_delim = [i + ['[CLS]'] + r +  ['[EOS]'] for i, r in zip(data['premise'], data['hypothesis'])]
 
+
+    # if use_vocab:
+    #     # vocab = torchtext.vocab.build_vocab_from_iterator(combined_with_delim, specials=['[UNK]', '[CLS]', '[EOS]'])
+    #     combined_with_delim = list(map(vocab, combined_with_delim))
+    #     torch.save(combined_with_delim, f'./data/processed/{data_path}.pt')
+    #     torch.save
+
+        # return vocab, combined_with_delim
+    
+
+    torch.save(combined_with_delim, f'./data/processed/{data_path}-input.pt')
+    torch.save(list(data['label']), f'./data/processed/{data_path}-targets.pt')
+    torch.save(list(data['genre']), f'./data/processed/{data_path}-genre.pt')
+    
+
+def make_extended_vocab(data, model_name='bert'):
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    data = torch.load(data)
+    tokenizer.add_tokens
 
 
 if __name__ == '__main__':
-    # something seomthing, if no raw files, run das_huggingface_pirater
-    if not all([os.path.exists(f'./data/raw/{i}.csv') for i in ['train', 'validation_matched', 'validation_mismatched']]):
-        print('Not all raw datasets detected, pirating all again')
-        das_huggingface_pirater()
 
-    dataset_preprocessor('train')
+    # All datasets in the huggingface multi_nli library
+    sets = ['train', 'validation_matched', 'validation_mismatched']
+    if not all([os.path.exists(f'./data/raw/{i}.csv') for i in sets]):
+        print('Not all raw datasets present, pirating all again')
+        das_huggingface_pirater()
+        
+    print('Processing data...')
+    for name in sets:
+        dataset_preprocessor(name)
