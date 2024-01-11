@@ -31,18 +31,7 @@ def dataset_preprocessor(data_path):
     save(combined_with_delim, f'./data/processed/{data_path}-input.pt')
     save(list(data['label']), f'./data/processed/{data_path}-targets.pt')
     save(list(data['genre']), f'./data/processed/{data_path}-genre.pt')
-
-    # if use_vocab:
-    #     # vocab = torchtext.vocab.build_vocab_from_iterator(combined_with_delim, specials=['[UNK]', '[CLS]', '[EOS]'])
-    #     combined_with_delim = list(map(vocab, combined_with_delim))
-    #     torch.save(combined_with_delim, f'./data/processed/{data_path}.pt')
-    #     torch.save
-
-        # return vocab, combined_with_delim
     
-
-    
-
 def make_extended_vocab(data_path, model_name='bert'):
     """
     Assume 'data' is file loadable by pytorch that is in some way a list of lists of tokenized words  

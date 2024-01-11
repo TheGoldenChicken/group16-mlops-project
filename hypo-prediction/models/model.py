@@ -1,5 +1,8 @@
 import torch
 
+
+
+
 class MyNeuralNet(torch.nn.Module):
     """ Basic neural network class. 
     
