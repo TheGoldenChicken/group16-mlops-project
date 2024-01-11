@@ -159,5 +159,5 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Ignore models in the "models" folder with ending .pt
+# Ignore models in the "models" folder with ending .pt (for some reason it doesn't work)
 /models/*.pt
