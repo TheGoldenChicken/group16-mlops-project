@@ -17,8 +17,8 @@ def das_huggingface_pirater():
 
     print('Saving as csv\'s... ')
     for dset in dataset.keys():
-            # Weird bug here that adds 'unnamed 0 index kinda row to the final product, plss fix
-            pd.DataFrame(list(zip(*[dataset[dset][i] for i in columns])), columns=columns).to_csv(f'data/raw/{dset}.csv')
+        # Weird bug here that adds 'unnamed 0 index kinda row to the final product, plss fix
+        pd.DataFrame(list(zip(*[dataset[dset][i] for i in columns])), columns=columns).to_csv(f'data/raw/{dset}.csv')
 
 def dataset_preprocessor(data_path):
     data = pd.read_csv(f'data/raw/{data_path}.csv')

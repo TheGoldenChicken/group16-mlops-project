@@ -8,9 +8,9 @@ def test_das_huggingface_pirater():
 
     das_huggingface_pirater()
 
-    assert os.path.exists('./data/raw/train.csv')
-    assert os.path.exists('./data/raw/validation_matched.csv')
-    assert os.path.exists('./data/raw/validation_mismatched.csv')
+    assert os.path.exists('./data/raw/train.csv'), 'The train.csv file has not been saved'
+    assert os.path.exists('./data/raw/validation_matched.csv'), 'The validation_matched.csv file has not been saved'
+    assert os.path.exists('./data/raw/validation_mismatched.csv'), 'The validation_mismatched.csv file has not been saved'
 
     # Assert that the files are valid CSV files
     all_files_valid = True
@@ -20,4 +20,4 @@ def test_das_huggingface_pirater():
         except:
             all_files_valid = False
             break
-    assert all_files_valid
+    assert all_files_valid, 'The CSV files are not valid, since they cannot be read by pandas.read_csv()'
