@@ -6,6 +6,7 @@ from datasets import load_dataset
 from torchtext.data import get_tokenizer
 from transformers import AutoTokenizer
 
+
 def das_huggingface_pirater():
     """Pirates the huggingface library
     Yeah no it doesn't really pirate it, but you know"""
@@ -20,7 +21,6 @@ def das_huggingface_pirater():
             pd.DataFrame(list(zip(*[dataset[dset][i] for i in columns])), columns=columns).to_csv(f'data/raw/{dset}.csv')
 
 def dataset_preprocessor(data_path):
-
     data = pd.read_csv(f'data/raw/{data_path}.csv')
     tokenizer = get_tokenizer('basic_english')
 
@@ -46,7 +46,6 @@ def make_extended_vocab(data_path, model_name='bert'):
 
 
 if __name__ == '__main__':
- 
     # All datasets in the huggingface multi_nli library
     sets = ['train', 'validation_matched', 'validation_mismatched']
     if not all([os.path.exists(f'./data/raw/{i}.csv') for i in sets]):
