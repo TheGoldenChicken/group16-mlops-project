@@ -1,1 +1,5 @@
 torch >= 2.1.0
+datasets >= 2.16.1
+torchtext >= 0.16.2
+transformers >= 4.32.1
+pandas >= 2.1.4
