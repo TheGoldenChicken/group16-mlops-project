@@ -60,7 +60,7 @@ def make_extended_vocab(data_path, model_name='bert'):
 
     save(tokenizer, f'models/{model_name}_extended_tokenizer.pt')
 
-
+ 
 if __name__ == '__main__':
     # All datasets in the huggingface multi_nli library
     sets = ['train', 'validation_matched', 'validation_mismatched']
