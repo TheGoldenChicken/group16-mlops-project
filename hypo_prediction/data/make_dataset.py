@@ -43,9 +43,8 @@ def dataset_preprocessor(data_path, train_test_split=0.9):
     train_set_size = int(len(data))*0.9 
     train_set = data.loc[:train_set_size]
     test_set = data.loc[train_set_size:]
-
-    pd.to_csv(train_set)
-    pd.to_csv(test_set)
+    train_set.to_csv('data/raw/train_set.csv')
+    test_set.to_csv('data/raw/test_set.csv')
 
     # If anything, this funciton should be something that automatically maps sentences to tokens to save time during training?
     

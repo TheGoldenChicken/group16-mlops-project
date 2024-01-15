@@ -6,9 +6,10 @@ import torch
 def test_dataset_preprocessor():
     """Checks if the .pt files are saved correctly."""
 
-    dataset_preprocessor('train')
-    dataset_preprocessor('validation_matched')
-    dataset_preprocessor('validation_mismatched')
+    path = "data/raw/"
+    dataset_preprocessor(path + 'train' + '.csv')
+    dataset_preprocessor(path + 'validation_matched' + '.csv')
+    dataset_preprocessor(path + 'validation_mismatched' + '.csv')
 
     file_paths = ['./data/processed/train-input.pt', './data/processed/train-targets.pt', './data/processed/train-genre.pt', './data/processed/validation_matched-input.pt', './data/processed/validation_matched-targets.pt', './data/processed/validation_matched-genre.pt', './data/processed/validation_mismatched-input.pt', './data/processed/validation_mismatched-targets.pt', './data/processed/validation_mismatched-genre.pt']
 
