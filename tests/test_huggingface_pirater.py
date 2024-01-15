@@ -6,7 +6,7 @@ import pandas as pd
 def test_das_huggingface_pirater():
     """Checks if a valid CSV file is saved."""
 
-    das_huggingface_pirater()
+    das_huggingface_pirater('pd')
 
     assert os.path.exists('./data/raw/train.csv'), 'The train.csv file has not been saved'
     assert os.path.exists('./data/raw/validation_matched.csv'), 'The validation_matched.csv file has not been saved'
