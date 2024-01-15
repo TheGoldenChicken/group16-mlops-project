@@ -23,12 +23,12 @@ def make_huggingface_dataset(data_path, tokenizer_path):
     data = load(data_path).values
 
     def tokenize_function(input):
-        return tokenizer()
+        return tokenizer(text=input['premise'], text_pair=input['hypothesis'], padding="max_length", truncation=True)
     
-    
+    train_set = data['train'].map(tokenize_function)
+    eval_set = data['validation_matched']
 
-
-    tokenizer = load(tokenizer_path) # Should be huggingface tokenizer class!
+    return train_set, eval_set
 
 
 
@@ -41,7 +41,6 @@ def train_model(model, train_data, val_data, tokenizer):
     train_loader = make_dataloader(train_path, tokenizer_path)
     train_loader = make_dataloader(val_path, tokenizer_path, train=False)
     
-
 
 
 if __name__ == "__main__":
