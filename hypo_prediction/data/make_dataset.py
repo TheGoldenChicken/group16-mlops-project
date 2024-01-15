@@ -65,13 +65,14 @@ def make_extended_vocab(data_path, model_name='bert'):
 if __name__ == '__main__':
     # All datasets in the huggingface multi_nli library
     sets = ['train', 'validation_matched', 'validation_mismatched']
-    if not all([os.path.exists(f'./data/raw/{i}.csv') for i in sets]):
-        print('Not all raw datasets present, pirating all again')
-        das_huggingface_pirater()
+    das_huggingface_pirater('huggingface')
+    # if not all([os.path.exists(f'./data/raw/{i}.csv') for i in sets]):
+    #     print('Not all raw datasets present, pirating all again')
+    #     das_huggingface_pirater()
         
-    print('Processing data...')
-    for name in sets:
-        dataset_preprocessor(name)
+    # print('Processing data...')
+    # for name in sets:
+    #     dataset_preprocessor(name)
 
     model_name = 'bert-base-uncased'
     data_path = './data/processed/train-input.pt'
