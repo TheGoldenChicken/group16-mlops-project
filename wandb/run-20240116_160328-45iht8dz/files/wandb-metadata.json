@@ -1,0 +1,45 @@
+{
+    "os": "Windows-10-10.0.22621-SP0",
+    "python": "3.11.7",
+    "heartbeatAt": "2024-01-16T15:03:30.568472",
+    "startedAt": "2024-01-16T15:03:28.878277",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:\\Users\\magnu\\Documents\\GitHub Projects\\group16-mlops-project\\hypo_prediction\\train_model.py",
+    "codePathLocal": "hypo_prediction\\train_model.py",
+    "codePath": "hypo_prediction\\train_model.py",
+    "git": {
+        "remote": "https://github.com/TheGoldenChicken/group16-mlops-project.git",
+        "commit": "e8a07118250c05cdc7c3dc2570bfa1378a330c46"
+    },
+    "email": "magnus@elgaard.com",
+    "root": "C:/Users/magnu/Documents/GitHub Projects/group16-mlops-project",
+    "host": "Magnus-B\u00e6rbar",
+    "username": "magnu",
+    "executable": "C:\\Users\\magnu\\anaconda3\\envs\\MLOps\\python.exe",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2001.0,
+        "min": 0.0,
+        "max": 2001.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2001.0,
+            "min": 0.0,
+            "max": 2001.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 173.61425399780273,
+            "used": 161.11444091796875
+        }
+    },
+    "memory": {
+        "total": 7.9026641845703125
+    }
+}
