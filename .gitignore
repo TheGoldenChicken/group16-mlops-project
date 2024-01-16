@@ -161,3 +161,5 @@ cython_debug/
 
 # Ignore models in the "models" folder with ending .pt (for some reason it doesn't work)
 /models/*.pt
+data/
+/data
