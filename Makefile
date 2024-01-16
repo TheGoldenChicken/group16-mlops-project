@@ -8,7 +8,7 @@
 # GLOBALS                                                                       #
 #################################################################################
 
-PROJECT_NAME = hypo-prediction
+PROJECT_NAME = fashion_mnist
 PYTHON_VERSION = 3.10
 PYTHON_INTERPRETER = python
 

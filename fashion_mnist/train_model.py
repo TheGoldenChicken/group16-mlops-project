@@ -1,17 +1,9 @@
-from torch.utils.data import DataLoader 
-from torch import load, tensor
-import pandas as pd
-import numpy as np
 import torch
 import lightning as L
-from torchmetrics.functional import accuracy
+from torch.utils.data import DataLoader 
 from lightning.pytorch.loggers import CSVLogger
-from lightning.pytorch.loggers import CSVLogger
-from pytorch_lightning.loggers import WandbLogger
-from torch.optim.lr_scheduler import OneCycleLR
-from torch.optim.swa_utils import AveragedModel, update_bn
-from torch.utils.data import DataLoader, random_split
-from torchmetrics.functional import accuracy
+from lightning.pytorch.loggers import WandbLogger
+from torch.utils.data import DataLoader
 from lightning.pytorch.callbacks import LearningRateMonitor
 from models.model import IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
 from fastapi import FastAPI

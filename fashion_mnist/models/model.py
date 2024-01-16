@@ -3,18 +3,13 @@ import torch.nn as nn
 import lightning as L
 from torchmetrics.functional import accuracy
 from lightning.pytorch.loggers import CSVLogger
-from lightning.pytorch.loggers import CSVLogger
-from torch.optim.lr_scheduler import OneCycleLR
-from torch.optim.swa_utils import AveragedModel, update_bn
-from torch.utils.data import DataLoader, random_split
-from torchmetrics.functional import accuracy
-from lightning.pytorch.callbacks import LearningRateMonitor
 
 
 class FashionMnistModel(torch.nn.Module):
     def __init__(self, in_features=(28,28), out_features=10):
         super().__init__()
-
+        
+        # Lightning code inspired by https://github.com/Lightning-AI/tutorials/blob/main/lightning_examples/cifar10-baseline/baseline.py
         # Layer structure graciously stolen from https://www.kaggle.com/code/pankajj/fashion-mnist-with-pytorch-93-accuracy
 
         self.layers = torch.nn.Sequential(
@@ -37,12 +32,13 @@ class FashionMnistModel(torch.nn.Module):
         return self.layers(input.unsqueeze(1))
 
 class IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst(L.LightningModule):
-    def __init__(self, in_features=(28,28), out_features=10, lr=0.05):
+    def __init__(self, in_features=(28,28), out_features=10, lr=0.001):
         super().__init__()
 
         self.save_hyperparameters()
         self.model = FashionMnistModel(in_features, out_features)
         self.criterion = torch.nn.CrossEntropyLoss()
+        self.lr = lr
 
     def forward(self, x):
         return self.model(x)
@@ -51,10 +47,6 @@ class IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirs
         x, y = batch
         logits = self(x)
         loss = self.criterion(logits, y.to(torch.long))
-
-        if torch.any(torch.isnan(loss)):
-            i = 2
-
         self.log("train_loss", loss)
         return loss
 
@@ -73,35 +65,12 @@ class IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirs
         self.evaluate(batch, "val")
 
     def test_step(self, batch, batch_idx):
-        self.evaluate(batch, "test")
+        self.evaluate(batch, "test") 
 
     def configure_optimizers(self):
-        optimizer = torch.optim.SGD(
+        optimizer = torch.optim.Adam(
             self.model.parameters(),
-            lr=0.005,
-            momentum=0.9,
-            weight_decay=5e-4,
+            lr=self.lr,
         )
         return {"optimizer": optimizer}
-        
-
-    # def configure_optimizers(self):
-    #     optimizer = torch.optim.SGD(
-    #         self.parameters(),
-    #         lr=self.hparams.lr,
-    #         momentum=0.9,
-    #         weight_decay=5e-4,
-    #     )
-    #     steps_per_epoch = 45000 // BATCH_SIZE
-    #     scheduler_dict = {
-    #         "scheduler": OneCycleLR(
-    #             optimizer,
-    #             0.1,
-    #             epochs=self.trainer.max_epochs,
-    #             steps_per_epoch=steps_per_epoch,
-    #         ),
-    #         "interval": "step",
-    #     }
-    #     return {"optimizer": optimizer, "lr_scheduler": scheduler_dict}
-
 
