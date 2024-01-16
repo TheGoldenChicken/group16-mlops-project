@@ -1,4 +1,9 @@
 import torch
+from fastapi import FastAPI
+from torch.utils.data import DataLoader
+
+app = FastAPI()
+
 
 def predict(
     model: torch.nn.Module,
@@ -15,3 +20,9 @@ def predict(
 
     """
     return torch.cat([model(batch) for batch in dataloader], 0)
+
+@app.get("/predict")
+def predict_endpoint(img):
+    dataloader = DataLoader([img], batch_size=1)
+    model = torch.load('models/model.pt')
+    return predict(model, dataloader)
