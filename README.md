@@ -1,18 +1,11 @@
-# group16: Premise-Hypothesis classification
+# Group 16: Premise-Hypothesis classification
 
-We have chosen to work with **HuggingFace** as the main third-party software \\
+This is the exam project for course 02476, MLOps. 
 
-Project work folder for group 19 working with huggingface transformers as primary third-party software. \\
+The project is centered around a classic classification problem, with the main focuspoint being the classification of the FMNIST dataset[https://huggingface.co/datasets/fashion_mnist](A dataset of Zalando's article images - with each example being a 28x28 grayscale image with an associated label from 10 classes) 
 
-Our project is centered around a premise-hypothesis classification problem posed by [https://huggingface.co/datasets/multi_nli](https://huggingface.co/datasets/multi_nli), 
-where a model is given a hypothesis and a premise and needs to classify the hypothesis as either either somewhat unrelated, yet similar in nature (neural), 
-as following logically  from the premise (entailment), or as actually contradicting the premise (contradiction). \\
+The main third-party software, we have chosen to work with is **HuggingFace**, where we will obtain the dataset, along with **Lightning**, which implements the trainer automatically. Furthermore, there will also be attempts to do DVC, as the opportunity is present and relevant. 
 
-For this task, we plan to use a pre-trained version of BERT, taken from HuggingFace. We will use transfer learning to fit it specifically to the actual problem. \\
-
-Of course the dataset might change, we've found more than one example of the MNLI data we're using, several of them on the officla HuggingFace site, others on Kaggle. \\
-This gives some opportunity to use dvc, even though the opoprtunity is totally ripe, so to speak.
+The initial project was based on this [https://medium.com/@anuranjana25/multiclass-classification-for-natural-language-inference-bbc6b9df1b10](article), and still stands as a point of inspiration for the current project as well. 
 
 
-We use this as inspiration for what the fuck we gots to do
-https://medium.com/@anuranjana25/multiclass-classification-for-natural-language-inference-bbc6b9df1b10
