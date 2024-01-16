@@ -25,8 +25,8 @@ def train_model():
     train_data = torch.load('data/processed/train.pt')
     test_data = torch.load('data/processed/test.pt')
 
-    train_dataloader = DataLoader(train_data, batch_size=16, num_workers=7)
-    test_dataloader = DataLoader(test_data, batch_size=16, num_workers=7)
+    train_dataloader = DataLoader(train_data, batch_size=16)
+    test_dataloader = DataLoader(test_data, batch_size=16)
 
     model = IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst(lr=0.005)
 

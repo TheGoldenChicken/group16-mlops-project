@@ -49,7 +49,7 @@ class IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirs
     def training_step(self, batch, batch_idx):
         x, y = batch
         logits = self(x)
-        loss = self.criterion(logits, y)
+        loss = self.criterion(logits, y.to(torch.long))
 
         if torch.any(torch.isnan(loss)):
             i = 2
