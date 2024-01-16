@@ -12,7 +12,7 @@ from torch.optim.swa_utils import AveragedModel, update_bn
 from torch.utils.data import DataLoader, random_split
 from torchmetrics.functional import accuracy
 from lightning.pytorch.callbacks import LearningRateMonitor
-from models import IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+from models.model import IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
 
 
 def train_model():
