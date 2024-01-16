@@ -13,6 +13,9 @@ from torch.utils.data import DataLoader, random_split
 from torchmetrics.functional import accuracy
 from lightning.pytorch.callbacks import LearningRateMonitor
 from models.model import IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+from fastapi import FastAPI
+
+app = FastAPI()
 
 
 def train_model():
@@ -34,6 +37,10 @@ def train_model():
 
     trainer.fit(model, train_dataloader, val_dataloaders=None)
     trainer.test(model, test_dataloader)
+
+@app.get("/train")
+def train_model_endpoint():
+    train_model()
 
 
 if __name__ == "__main__":
