@@ -1,0 +1,5 @@
+in_features: !!python/tuple
+- 28
+- 28
+lr: 0.005
+out_features: 10

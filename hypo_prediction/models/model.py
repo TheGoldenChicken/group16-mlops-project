@@ -10,6 +10,7 @@ from torch.utils.data import DataLoader, random_split
 from torchmetrics.functional import accuracy
 from lightning.pytorch.callbacks import LearningRateMonitor
 
+
 class FashionMnistModel(torch.nn.Module):
     def __init__(self, in_features=(28,28), out_features=10):
         super().__init__()
@@ -60,7 +61,7 @@ class IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirs
     def evaluate(self, batch, stage=None):
         x, y = batch
         logits = self(x)
-        loss = self.criterion(logits, y)
+        loss = self.criterion(logits, y.to(torch.long))
         preds = torch.argmax(logits, dim=1)
         acc = accuracy(preds, y, task="multiclass", num_classes=10)
 

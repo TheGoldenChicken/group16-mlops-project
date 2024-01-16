@@ -1,17 +1,14 @@
-from hypo_prediction.data.make_dataset import dataset_preprocessor
+from hypo_prediction.data.make_dataset import data_preprocessor
 import os
 import torch
 
 
-def test_dataset_preprocessor():
+def test_data_preprocessor():
     """Checks if the .pt files are saved correctly."""
 
-    path = "data/raw/"
-    dataset_preprocessor(path + 'train' + '.csv')
-    dataset_preprocessor(path + 'validation_matched' + '.csv')
-    dataset_preprocessor(path + 'validation_mismatched' + '.csv')
+    data_preprocessor()
 
-    file_paths = ['./data/processed/train-input.pt', './data/processed/train-targets.pt', './data/processed/train-genre.pt', './data/processed/validation_matched-input.pt', './data/processed/validation_matched-targets.pt', './data/processed/validation_matched-genre.pt', './data/processed/validation_mismatched-input.pt', './data/processed/validation_mismatched-targets.pt', './data/processed/validation_mismatched-genre.pt']
+    file_paths = ['./data/processed/train.pt', './data/processed/test.pt']
 
     # Assert that the files are saved
     all_files_saved = True
