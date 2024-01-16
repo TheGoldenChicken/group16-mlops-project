@@ -1,9 +1,14 @@
 import torch
 import lightning as L
 from torch.utils.data import DataLoader 
+<<<<<<< HEAD:fashion_mnist/train_model.py
 from lightning.pytorch.loggers import CSVLogger
 from lightning.pytorch.loggers import WandbLogger
 from torch.utils.data import DataLoader
+=======
+from torchmetrics.functional import accuracy
+from lightning.pytorch.loggers import CSVLogger
+>>>>>>> clean model code:hypo_prediction/train_model.py
 from lightning.pytorch.callbacks import LearningRateMonitor
 from models.model import IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
 from fastapi import FastAPI

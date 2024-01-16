@@ -3,7 +3,10 @@ import torch.nn as nn
 import lightning as L
 from torchmetrics.functional import accuracy
 from lightning.pytorch.loggers import CSVLogger
+<<<<<<< HEAD:fashion_mnist/models/model.py
 
+=======
+>>>>>>> clean model code:hypo_prediction/models/model.py
 
 class FashionMnistModel(torch.nn.Module):
     def __init__(self, in_features=(28,28), out_features=10):
@@ -46,7 +49,11 @@ class IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirs
     def training_step(self, batch, batch_idx):
         x, y = batch
         logits = self(x)
+<<<<<<< HEAD:fashion_mnist/models/model.py
         loss = self.criterion(logits, y.to(torch.long))
+=======
+        loss = self.criterion(logits, y)
+>>>>>>> clean model code:hypo_prediction/models/model.py
         self.log("train_loss", loss)
         return loss
 
