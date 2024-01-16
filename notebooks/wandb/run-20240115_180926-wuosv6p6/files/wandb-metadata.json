@@ -1,0 +1,127 @@
+{
+    "os": "Linux-5.15.0-91-generic-x86_64-with-glibc2.31",
+    "python": "3.10.13",
+    "heartbeatAt": "2024-01-15T17:09:28.879148",
+    "startedAt": "2024-01-15T17:09:26.590436",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/TheGoldenChicken/group16-mlops-project.git",
+        "commit": "8d323764cedbf24ed15ec4f15e3a320caf203386"
+    },
+    "email": "Karl Meisner",
+    "root": "/home/dayman/group16-mlops-project",
+    "host": "dayman-B450-AORUS-PRO",
+    "username": "dayman",
+    "executable": "/home/dayman/miniconda3/envs/hypo-prediction/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 2.2910000000000004,
+        "min": 2200.0,
+        "max": 3600.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 3.374,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        },
+        {
+            "current": 2.2,
+            "min": 2200.0,
+            "max": 3600.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 456.8854446411133,
+            "used": 243.06966400146484
+        }
+    },
+    "gpu": "NVIDIA GeForce GTX 1070",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1070",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 15.555870056152344
+    }
+}
