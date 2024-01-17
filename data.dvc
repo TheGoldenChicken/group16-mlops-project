@@ -1,6 +1,32 @@
 outs:
-- md5: a1d43bc4d4da5e33a6a706a233fd6a2f.dir
-  size: 294976065
-  nfiles: 4
-  hash: md5
+- hash: md5
   path: data
+  files:
+  - relpath: .gitignore
+    md5: 1e7a1b00eee16daff35433737a709f71
+    size: 18
+    cloud:
+      remote_storage:
+        etag: 08cbe8b68392e483031001
+        version_id: '1705484812661835'
+  - relpath: processed/test.pt
+    md5: 78a85af170c4417aba3f5bc2a2b0d1db
+    size: 31401350
+    cloud:
+      remote_storage:
+        etag: 08aec4a18492e483031001
+        version_id: '1705484814410286'
+  - relpath: processed/train.pt
+    md5: 1f24e9384d1367739fac9f9af532b8a7
+    size: 188401356
+    cloud:
+      remote_storage:
+        etag: 08f18fcf8792e483031001
+        version_id: '1705484821448689'
+  - relpath: train_set
+    md5: 5b0d31c08a8af730253d2cadce59e3cb
+    size: 75173341
+    cloud:
+      remote_storage:
+        etag: 0883c0a48392e483031001
+        version_id: '1705484812361731'
