@@ -30,8 +30,8 @@ jobs:
     - uses: iterative/setup-dvc@v1
     - name: Get data
       run: dvc pull
-      env:
-        GOOGLE_APPLICATION_CREDENTIALS: keyfile.json
+      # env:
+      #   GOOGLE_APPLICATION_CREDENTIALS: keyfile.json
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
