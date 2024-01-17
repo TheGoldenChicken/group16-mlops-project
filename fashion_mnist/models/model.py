@@ -72,4 +72,3 @@ class IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirs
             lr=self.lr,
         )
         return {"optimizer": optimizer}
-
