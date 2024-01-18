@@ -1,4 +1,4 @@
-from fashion_mnist.models.model import IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+from fmnist.models.model import IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
 import os
 import torch
 
