@@ -1,5 +1,5 @@
 # Base image
-FROM python:3.10-slim
+FROM python:3.9-slim
 
 EXPOSE 8080
 
@@ -9,11 +9,11 @@ RUN apt update && \
 
 COPY requirements.txt requirements.txt
 COPY pyproject.toml pyproject.toml
-COPY fashion_mnist/ fashion_mnist/
+COPY fmnist/ fmnist/
 COPY data/ data/
 
 WORKDIR /
 RUN pip install -r requirements.txt --no-cache-dir
 # RUN pip install . --no-deps --no-cache-dir
 
-ENTRYPOINT ["python", "-u", "fashion_mnist/train_model.py"]
+ENTRYPOINT ["python", "-u", "fmnist/train_model.py"]
