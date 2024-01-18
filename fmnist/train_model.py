@@ -6,10 +6,8 @@ from lightning.pytorch.loggers import WandbLogger
 from torch.utils.data import DataLoader
 from lightning.pytorch.callbacks import LearningRateMonitor
 from models.model import IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
-from fastapi import FastAPI
 import wandb
 
-app = FastAPI()
 wandb.login(key="7ea086a098e40728fdf48b616051776a17daf566")
 
 
@@ -32,10 +30,6 @@ def train_model():
 
     trainer.fit(model, train_dataloader, val_dataloaders=None)
     trainer.test(model, test_dataloader)
-
-@app.get("/train")
-def train_model_endpoint():
-    train_model()
 
 
 if __name__ == "__main__":

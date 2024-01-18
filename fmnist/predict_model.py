@@ -1,6 +1,9 @@
 import torch
-from fastapi import FastAPI
-from torch.utils.data import DataLoader
+from fastapi import FastAPI, UploadFile, File
+from fmnist.models.model import IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+import io
+from PIL import Image
+import numpy as np
 
 app = FastAPI()
 
@@ -21,8 +24,19 @@ def predict(
     """
     return torch.cat([model(batch) for batch in dataloader], 0)
 
-@app.get("/predict")
-def predict_endpoint(img):
-    dataloader = DataLoader([img], batch_size=1)
-    model = torch.load('models/model.pt')
-    return predict(model, dataloader)
+@app.post("/predict/")
+async def predict_endpoint(file: UploadFile = File(...)):
+    # transform = transforms.ToTensor()
+    # img = transform(img)
+    file_bytes = await file.read()
+    img_tensor = torch.load(io.BytesIO(file_bytes))
+
+    # Print shape max and min
+    print(img_tensor.shape)
+    print(img_tensor.max())
+    print(img_tensor.min())
+    
+    model = IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst(img_tensor)
+    model.load_state_dict(torch.load("models/model.pt"))
+
+    return model(img_tensor).argmax().item()
