@@ -333,7 +333,12 @@ On our github readme, we also have included instructions on how to run the exper
 >
 > Answer:
 
---- question 14 fill here ---
+[this figure](figures/wandb_graphs.png)
+[this figure](figures/wandb_loss.png)
+[this figure](figures/wandb_run.png)
+
+We tracked train loss to see if our model learns something (it doesn't).
+We also track learning rate since its common to use a scheduler.
 
 ### Question 15
 
