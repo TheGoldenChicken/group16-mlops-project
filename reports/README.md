@@ -410,7 +410,7 @@ Debugging wasn't discussed beforehand ---
 >
 > Answer:
 
---- question 19 fill here ---
+[cloud storage](figures/cloud_storage.png)
 
 ### Question 20
 
@@ -419,7 +419,7 @@ Debugging wasn't discussed beforehand ---
 >
 > Answer:
 
---- question 20 fill here ---
+[container rehistry](figures/container_registry.png)
 
 ### Question 21
 
@@ -428,7 +428,8 @@ Debugging wasn't discussed beforehand ---
 >
 > Answer:
 
---- question 21 fill here ---
+For some reason the build history is not showing.
+[empty_build](figures/build.png)
 
 ### Question 22
 
