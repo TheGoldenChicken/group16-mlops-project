@@ -1,0 +1,24 @@
+# config.yaml
+
+fit:
+    trainer:
+        max_epochs: 10
+    model:
+        class_path: models.model.IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+
+test:
+    model:
+        class_path: models.model.IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+    ckpt_path: 'last'
+    trainer:
+        limit_test_batches: 100000
+
+
+# =======
+# workerPoolSpecs:
+#     machineSpec:
+#         machineType: n1-highmem-2
+#     replicaCount: 1
+#     containerSpec:
+#         imageUri: gcr.io/concrete-rig-410716/trainer
+# >>>>>>> a082deeb8a2c87cbe949d7908b984b257b57b849

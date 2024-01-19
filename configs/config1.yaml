@@ -1,0 +1,17 @@
+fit:
+    trainer:
+        max_epochs: 1
+        limit_train_batches: 100
+        logger: [CSVLogger(save_dir="logs/"), WandbLogger(project="MLOps-Project")],
+        callbacks: [LearningRateMonitor(logging_interval="step")]
+    model:
+        class_path: models.model.IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+        init_args:
+            lr: 0.001
+
+test:
+    trainer:
+        limit_test_batches: 1000
+    model:
+        class_path: models.model.IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+
