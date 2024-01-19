@@ -386,7 +386,9 @@ Debugging wasn't discussed beforehand ---
 >
 > Answer:
 
---- question 17 fill here ---
+We made use of the compute engiene, buckets and container registry.
+We tried to use the compute engiene to deploy our model, and a container registry to store the images.
+We used buckets to store our data with DVC.
 
 ### Question 18
 
@@ -401,7 +403,7 @@ Debugging wasn't discussed beforehand ---
 >
 > Answer:
 
---- question 18 fill here ---
+We tried to compute engiene to deploy or model. We used docker as a virtual machine.
 
 ### Question 19
 
