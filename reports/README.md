@@ -203,7 +203,7 @@ In larger projects with multiple contributors, it's a hugely good idea both from
 >
 > Answer:
 
---- question 7 fill here ---
+--- We implemented two tests to test the dataset preprocessor and the shape of the model output. In a 'real' situation we would probably have implemented tests to check for model training, for example that model updates are not too big, loss is 'sane', etc. ---
 
 ### Question 8
 
@@ -218,7 +218,9 @@ In larger projects with multiple contributors, it's a hugely good idea both from
 >
 > Answer:
 
---- question 8 fill here ---
+--- Coverage lists our total code coverage is is 52%, but we wouldnt trust this number farther than we can throw it. Our tests only really test two specific parts of two specific functions. \\
+
+We could potentially reach 100% without even testing everything, either because we don't test for sufficient cases or with sufficient inputs. Even with 100% coverage, we couldn't trust it. This is doubly true as our experience is that lightning has a lot of functionality 'under the hood', meaning you could have done most of everything seemingly correct, but still have your trainer fail because you accidentally called function train_datload instead of train_dataloader.  ---
 
 ### Question 9
 
