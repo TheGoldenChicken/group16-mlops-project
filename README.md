@@ -1,4 +1,4 @@
-# Group 16: Premise-Hypothesis classification
+# Group 16: Fashion mnist classification
 
 This is the exam project for course 02476, MLOps. 
 
