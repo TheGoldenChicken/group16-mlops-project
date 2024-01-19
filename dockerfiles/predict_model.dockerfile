@@ -2,6 +2,7 @@
 FROM python:3.9-slim
 
 EXPOSE 8080
+CMD exec uvicorn predictions:app --port 8080 --workers 1 main:app
 
 RUN apt update && \
     apt install --no-install-recommends -y build-essential gcc && \

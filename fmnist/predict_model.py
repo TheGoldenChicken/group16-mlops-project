@@ -2,8 +2,6 @@ import torch
 from fastapi import FastAPI, UploadFile, File
 from fmnist.models.model import IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
 import io
-from PIL import Image
-import numpy as np
 
 app = FastAPI()
 
