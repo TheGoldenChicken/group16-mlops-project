@@ -14,3 +14,11 @@ test:
         limit_test_batches: 100000
 
 
+# =======
+# workerPoolSpecs:
+#     machineSpec:
+#         machineType: n1-highmem-2
+#     replicaCount: 1
+#     containerSpec:
+#         imageUri: gcr.io/concrete-rig-410716/trainer
+# >>>>>>> a082deeb8a2c87cbe949d7908b984b257b57b849
