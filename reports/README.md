@@ -442,7 +442,7 @@ To run the prediction docker image, use ' bla bla bla' ---
 >
 > Answer:
 
---- question 22 fill here ---
+We deployed our model locally with fast-api. So it was possible to upload an image from fashion mnist test in the form of a pytorch tensor and get the prediction. We did not succeed in deploying with GCP since there was technical problems.
 
 ### Question 23
 
@@ -471,7 +471,7 @@ To run the prediction docker image, use ' bla bla bla' ---
 >
 > Answer:
 
---- question 24 fill here ---
+Google cloud was the only paid service we used, and in total we used 210 kr. worth of credits.
 
 ## Overall discussion of project
 
