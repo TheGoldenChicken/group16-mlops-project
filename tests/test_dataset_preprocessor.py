@@ -1,4 +1,4 @@
-from hypo_prediction.data.make_dataset import data_preprocessor
+from fmnist.data.make_dataset import data_preprocessor
 import os
 import torch
 
