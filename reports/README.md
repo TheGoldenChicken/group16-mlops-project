@@ -333,9 +333,9 @@ On our github readme, we also have included instructions on how to run the exper
 >
 > Answer:
 
-[this figure](figures/wandb_graphs.png)
-[this figure](figures/wandb_loss.png)
-[this figure](figures/wandb_run.png)
+[this figure](figures/wandb_graphs.png) \
+[this figure](figures/wandb_loss.png) \
+[this figure](figures/wandb_run.png) \
 
 We tracked train loss to see if our model learns something (it doesn't).
 We also track learning rate since its common to use a scheduler.
@@ -348,16 +348,18 @@ We also track learning rate since its common to use a scheduler.
 > Answer length: 100-200 words.
 >
 > Example:
-> *For our project we developed several images: one for training, inference and deployment. For example to run the*
+> *For our project we developed several images: one for training, inference, and deployment. For example to run the*
 > *training docker image: `docker run trainer:latest lr=1e-3 batch_size=64`. Link to docker file: <weblink>*
 >
 > Answer:
 
---- We created two docker images, one for training, one for prediction. The plan was also to develop a third one which would have a bit more functionality for deployment purposes, but we didn't get around to this. \\
+--- We created two docker images, one for training, one for prediction. The plan was also to develop a third one which would have a bit more functionality for deployment purposes, but we didn't get around to doing this.
 
-To run out training docker image, use ''
+The docker images are stored [here](https://drive.google.com/drive/folders/1lpl8GpONTABwg6kVagsefrxptPBhBs7r?usp=drive_link)
 
-To run the prediction docker image, use ' bla bla bla' ---
+To run out training docker image, download the trainer_latest.tar file, then use the command **docker image load trainer_latest.tar**. This will restore the image and the tags associated. It is then possible to run the docker image using the command **docker run trainer**, which will result in a docker container. 
+
+To run out training docker image, download the predict_latest.tar file, then use the command **docker image load predict_latest.tar**. This will restore the image and the tags associated. It is then possible to run the docker image using the command **docker run predict**, which will result in a docker container.
 
 ### Question 16
 
@@ -372,7 +374,7 @@ To run the prediction docker image, use ' bla bla bla' ---
 >
 > Answer:
 
---- We didn't discuss any debugging strucutre beforehand, therefore the actual methods are hard to reason about. It's sure that we didn't try to profile our code. On the other hand, the rather specific requirements set by lightning made the code somewhat profiled in some cases, which was an automatic gain. \\
+--- We didn't discuss any debugging structure beforehand, therefore the actual methods are hard to reason about. However, it was determined that it was important to make sure that the code could run, at least on 1 machine. The debugging included suggestions to other group members on how to address specific issues when they came up. The profiling was stalled based on other priorities but on the other hand, the rather specific requirements set by Lightning made the code somewhat profiled in some cases, which was an automatic gain. \\
 
 ## Working in the cloud
 
