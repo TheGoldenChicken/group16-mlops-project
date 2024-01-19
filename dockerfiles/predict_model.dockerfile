@@ -12,6 +12,5 @@ COPY data/ data/
 
 WORKDIR /
 RUN pip install -r requirements.txt --no-cache-dir
-RUN pip install . --no-deps --no-cache-dir
 
 ENTRYPOINT ["python", "-u", "fashion_mnist/predict_model.py"]
