@@ -1,0 +1,24 @@
+# config.yaml
+
+fit:
+    trainer:
+        max_epochs: 1
+        limit_train_batches: 100
+    model:
+        class_path: models.model.IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+
+test:
+    model:
+        class_path: models.model.IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+    trainer:
+        limit_test_batches: 10
+
+predict:
+    model:
+      class_path: models.model.IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+    ckpt_path: 'last'
+    return_predictions: True
+    
+
+
+

@@ -350,7 +350,7 @@ On our github readme, we also have included instructions on how to run the exper
 
 --- We created two docker images, one for training, one for prediction. The plan was also to develop a third one which would have a bit more functionality for deployment purposes, but we didn't get around to this. \\
 
-To run out training docker image, use ' bla bla bla bla'
+To run out training docker image, use ''
 
 To run the prediction docker image, use ' bla bla bla' ---
 
@@ -367,9 +367,7 @@ To run the prediction docker image, use ' bla bla bla' ---
 >
 > Answer:
 
---- Our code is far from perfect. \\
-
-Debugging wasn't discussed beforehand ---
+--- We didn't discuss any debugging strucutre beforehand, therefore the actual methods are hard to reason about. It's sure that we didn't try to profile our code. On the other hand, the rather specific requirements set by lightning made the code somewhat profiled in some cases, which was an automatic gain. \\
 
 ## Working in the cloud
 
@@ -462,7 +460,7 @@ We deployed our model locally with fast-api. So it was possible to upload an ima
 >
 > Answer:
 
---- question 23 fill here ---
+The implementation of monitoring was not achieved, primarily because of an abrupt shift in the project's direction. This sudden change required us to redirect our resources and efforts towards tackling the more immediate and critical challenges that had emerged, particularly those related to the size of the dataset and the model, as well as various deployment issues. Furthermore, this was also due to the fact that our monitoring was not developed yet, and became a lesser priority compared to the deployment of the gcp. This then meant that there was a lack of insight into the different issues that plagued our final version of the project, including but not excluding the issues with the deployment of the gpc. 
 
 ### Question 24
 
@@ -552,4 +550,8 @@ Unexpectedly enough, we had little to no problems with DVC... this was nice.  --
 >
 > Answer:
 
---- question 27 fill here ---
+Student 204106 was in charge of establishing the model that was to be trained, and when the initial idea for the project was discarded, this student established a new customized model, more specified for the newer project. This student also helped establish the newer version of the project, given that the previous plan could not be achieved. Furthermore, the dvc, along with config files for lightning was also established by this student.
+Student 204134 was in charge of debugging the code, along with the attempts at monitoring, as given by S8. Furthermore, the development of the docker files, along with docker images was also this student's responsibility. This student also helped establish the newer version of the project, when it was determined that the previous/initial goal could no longer be fulfilled.
+Student 204164 was in charge of establishing the repository for the code. The initialization, and deployment of the gcp, along with the base code for training the model, was also the responsibility of this student. Furthermore, the student also established the link to Weights and Biases, along with Student 204134.
+
+All members contributed to the code by training the model and debugging when needed. Since the final model is more simplified compared to the initial goal, along with the members meeting physically and also working together, it can be said that all the members contributed to the code.
