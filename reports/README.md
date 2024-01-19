@@ -365,7 +365,9 @@ To run the prediction docker image, use ' bla bla bla' ---
 >
 > Answer:
 
---- question 16 fill here ---
+--- Our code is far from perfect. \\
+
+Debugging wasn't discussed beforehand ---
 
 ## Working in the cloud
 
@@ -490,7 +492,21 @@ To run the prediction docker image, use ' bla bla bla' ---
 >
 > Answer:
 
---- question 25 fill here ---
+--- [Our overview (Excuse the quality)](figures/our_overview.png) \\
+
+Our setup is really kinda simple as we didn't get a continuous integration pipeline setup or working in sane way. Overall though, we have our dev environment which we push new features and changes to. This then triggers github actions to run a unittests, mostly for very basic proof-of-concept purposes. \\
+
+At the same time, we can train our models locally using lightningCLI with config files (bear in mind the config file implementation is...shaky). This trained model can then be 'deployed' via fastapi to actually make predictions, or locally again using lightningCLI, which will log results automatically as lightningCLI does. \\
+
+Docker doesn't really enter the picture here, because we haven't set up any way of building images continuously as we update our code. \\
+
+Ideally, we would have increased our test coverage using gh actions, while also building images automatically using GCP or a similar service. These images could then be deployed directly to a cloud service like GCP for training and inference. \\
+
+Possibly we could also set up the docker training images in a way so that the training logs, after being saved to wandb, could be pushed to our github repository, so we also have a log of all deployed models. However, the specifics of GCP communicating with github through docker seem kinda sketchy and we're not sure how that would work with github security keys and the like. \\
+
+In terms of local reproduciability, we're kinda happy with using lightningCLI as a solution, but as we don't have an automatic way of building docker images, our reproduciabilty suffers a bit.
+
+ ---
 
 ### Question 26
 
@@ -504,7 +520,17 @@ To run the prediction docker image, use ' bla bla bla' ---
 >
 > Answer:
 
---- question 26 fill here ---
+--- We spent the most time struggling with huggingface, these struggles were for the most part not really ones that were relevant the core curriculum of the course, which is unfortunate. \\
+
+Following this (at around 3 days left), we scrap all we have, and spend around 2 hours to cram everything into Lightning, which at this point already works miles better than HF did. After this, we had to delegate our responsibilty between the group members to make everything in time for the deadline. Here, our main problems were getting cloud and model deployment to work. Following this, it was mostly getting L-CLI to work. Our problems from cloud came both from it being a new tool and all, and also from the fact that we used dockerfiles that were kinda hastily assembled for what they were going to do. As such, we had to debug two things at once, which was a pain. \\ 
+
+At the same time, L-CLI was being implemented, meaning the interface would potentially change last minute, which also made problems as both parts tried to minimize potential problems for the other. In the end, neither thing really ended up working 100% \\
+
+To prevent these issues in future projects, we will most try to use the following methods. a: a more modular approach to building our entire project, so that the implementation of one thing doesn't massively change how another one behaves. And b: actual development branches and code standards. In general, we could have used more internal communication *before* we leaped right into everything everywhere all at once.
+
+We might end up eating crow for saying this, but we could actually have used a product manager... \\
+
+Unexpectedly enough, we had little to no problems with DVC... this was nice.  ---
 
 ### Question 27
 
