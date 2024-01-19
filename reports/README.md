@@ -184,7 +184,7 @@ One member of our group has also had problems with this before, where in using a
 
 --- Nope, but most of our actual code for the model, train scripts and such were written by one person during 'copilot coding', so not really necessary in this project. \\
 
-In larger projects with multiple contributors, it's a hugely good idea both from a developer viewpoint (you'll have an easier time reading and editing code other people are reponsible for). And from a reproduciability viewpoint; the code in most ML papers already is barely 1 step removed from a swamp, anything which can remedy that, should be done.  ---
+In larger projects with multiple contributors, it's a hugely good idea both from a developer viewpoint (you'll have an easier time reading and editing code other people are reponsible for). And from a reproduciability viewpoint; the code in most ML papers already is barely 1 step removed from a swamp, anything which can remedy that, should be done. ---
 
 ## Version control
 
@@ -220,7 +220,7 @@ In larger projects with multiple contributors, it's a hugely good idea both from
 
 --- Coverage lists our total code coverage is is 52%, but we wouldnt trust this number farther than we can throw it. Our tests only really test two specific parts of two specific functions. \\
 
-We could potentially reach 100% without even testing everything, either because we don't test for sufficient cases or with sufficient inputs. Even with 100% coverage, we couldn't trust it. This is doubly true as our experience is that lightning has a lot of functionality 'under the hood', meaning you could have done most of everything seemingly correct, but still have your trainer fail because you accidentally called function train_datload instead of train_dataloader.  ---
+We could potentially reach 100% without even testing everything, either because we don't test for sufficient cases or with sufficient inputs. Even with 100% coverage, we couldn't trust it. This is doubly true as our experience is that lightning has a lot of functionality 'under the hood', meaning you could have done most of everything seemingly correct, but still have your trainer fail because you accidentally called function train_datload instead of train_dataloader. ---
 
 ### Question 9
 
@@ -274,7 +274,7 @@ But again; man we really could have used it earlier in other projects. ---
 >
 > Answer:
 
---- question 11 fill here ---
+--- In terms of CI, we have automatic unittesting for both windows, linux and mac, all unittests are the same across all platforms. We would like to have triggered workflows especially in automatically building new docker images whenever we have changes to our code. One example of a triggered workflow can be found here: https://github.com/magn3144/group16-mlops-project/actions/runs/7587599776, though it is not too relevant as the associated commit was only to make readme changes. ---
 
 ## Running code and tracking experiments
 
@@ -297,7 +297,7 @@ But again; man we really could have used it earlier in other projects. ---
 
 Ideally though, we would have had one config file per experiment we want to be reproducible. L-CLI is really good for this, as you can configure both training, testing and prediction in the same config file, really simplifying how the execution looks... \\
 
-... this was also what made it hard to figure out how it works...---
+... this was also what made it hard to figure out how it works... ---
 
 ### Question 13
 
@@ -316,7 +316,7 @@ Ideally though, we would have had one config file per experiment we want to be r
 
 To reproduce an experiment, user would simply have to find the appropriate log file and use the config file stored there along with L-CLI to run it exactly as it was run. One thing we're missing is automatic naming of these log files, which we did not have time to set up. Currently it is just named version_1,2,3...n, which doesn't say much about what the actual experiment run was. \\
 
-On our github readme, we also have included instructions on how to run the experiment from the ground up with CLI. As Nicki said "What if I was too stupid to run docker files?", we assume they're still smart enough to read and execute the commands in our README. (Judging from personal experience with other people's github repos, this might be abit much to assume, tho)---
+On our github readme, we also have included instructions on how to run the experiment from the ground up with CLI. As Nicki said "What if I was too stupid to run docker files?", we assume they're still smart enough to read and execute the commands in our README. (Judging from personal experience with other people's github repos, this might be abit much to assume, tho) ---
 
 ### Question 14
 
@@ -333,12 +333,12 @@ On our github readme, we also have included instructions on how to run the exper
 >
 > Answer:
 
-[this figure](figures/wandb_graphs.png) \
-[this figure](figures/wandb_loss.png) \
-[this figure](figures/wandb_run.png) \
+--- [this figure](figures/wandb_graphs.png) \\
+[this figure](figures/wandb_loss.png) \\
+[this figure](figures/wandb_run.png) \\
 
 We tracked train loss to see if our model learns something (it doesn't).
-We also track learning rate since its common to use a scheduler.
+We also track learning rate since its common to use a scheduler. ---
 
 ### Question 15
 
@@ -353,13 +353,13 @@ We also track learning rate since its common to use a scheduler.
 >
 > Answer:
 
---- We created two docker images, one for training, one for prediction. The plan was also to develop a third one which would have a bit more functionality for deployment purposes, but we didn't get around to doing this.
+--- We created two docker images, one for training, one for prediction. The plan was also to develop a third one which would have a bit more functionality for deployment purposes, but we didn't get around to doing this. \\
 
-The docker images are stored [here](https://drive.google.com/drive/folders/1lpl8GpONTABwg6kVagsefrxptPBhBs7r?usp=drive_link)
+The docker images are stored [here](https://drive.google.com/drive/folders/1lpl8GpONTABwg6kVagsefrxptPBhBs7r?usp=drive_link) \\
 
-To run out training docker image, download the trainer_latest.tar file, then use the command **docker image load trainer_latest.tar**. This will restore the image and the tags associated. It is then possible to run the docker image using the command **docker run trainer**, which will result in a docker container. 
+To run out training docker image, download the trainer_latest.tar file, then use the command **docker image load trainer_latest.tar**. This will restore the image and the tags associated. It is then possible to run the docker image using the command **docker run trainer**, which will result in a docker container.  \\
 
-To run out training docker image, download the predict_latest.tar file, then use the command **docker image load predict_latest.tar**. This will restore the image and the tags associated. It is then possible to run the docker image using the command **docker run predict**, which will result in a docker container.
+To run out training docker image, download the predict_latest.tar file, then use the command **docker image load predict_latest.tar**. This will restore the image and the tags associated. It is then possible to run the docker image using the command **docker run predict**, which will result in a docker container. ---
 
 ### Question 16
 
@@ -374,7 +374,7 @@ To run out training docker image, download the predict_latest.tar file, then use
 >
 > Answer:
 
---- We didn't discuss any debugging structure beforehand, therefore the actual methods are hard to reason about. However, it was determined that it was important to make sure that the code could run, at least on 1 machine. The debugging included suggestions to other group members on how to address specific issues when they came up. The profiling was stalled based on other priorities but on the other hand, the rather specific requirements set by Lightning made the code somewhat profiled in some cases, which was an automatic gain. \\
+--- We didn't discuss any debugging structure beforehand, therefore the actual methods are hard to reason about. However, it was determined that it was important to make sure that the code could run, at least on 1 machine. The debugging included suggestions to other group members on how to address specific issues when they came up. The profiling was stalled based on other priorities but on the other hand, the rather specific requirements set by Lightning made the code somewhat profiled in some cases, which was an automatic gain. ---
 
 ## Working in the cloud
 
@@ -391,9 +391,9 @@ To run out training docker image, download the predict_latest.tar file, then use
 >
 > Answer:
 
-We made use of the compute engiene, buckets and container registry.
+--- We made use of the compute engiene, buckets and container registry.
 We tried to use the compute engiene to deploy our model, and a container registry to store the images.
-We used buckets to store our data with DVC.
+We used buckets to store our data with DVC. ---
 
 ### Question 18
 
@@ -408,7 +408,7 @@ We used buckets to store our data with DVC.
 >
 > Answer:
 
-We tried to compute engiene to deploy or model. We used docker as a virtual machine.
+--- We tried to compute engiene to deploy or model. We used docker as a virtual machine, although whether or not this is actually a true VM is debtable.. ---
 
 ### Question 19
 
@@ -417,7 +417,7 @@ We tried to compute engiene to deploy or model. We used docker as a virtual mach
 >
 > Answer:
 
-[cloud storage](figures/cloud_storage.png)
+--- [cloud storage](figures/cloud_storage.png) ---
 
 ### Question 20
 
@@ -426,7 +426,7 @@ We tried to compute engiene to deploy or model. We used docker as a virtual mach
 >
 > Answer:
 
-[container rehistry](figures/container_registry.png)
+--- [container rehistry](figures/container_registry.png) ---
 
 ### Question 21
 
@@ -435,8 +435,7 @@ We tried to compute engiene to deploy or model. We used docker as a virtual mach
 >
 > Answer:
 
-For some reason the build history is not showing.
-[empty_build](figures/build.png)
+--- For some reason the build history is not showing: [empty_build](figures/build.png) ---
 
 ### Question 22
 
@@ -452,7 +451,7 @@ For some reason the build history is not showing.
 >
 > Answer:
 
-We deployed our model locally with fast-api. So it was possible to upload an image from fashion mnist test in the form of a pytorch tensor and get the prediction. We did not succeed in deploying with GCP since there was technical problems.
+--- We deployed our model locally with fast-api. So it was possible to upload an image from fashion mnist test in the form of a pytorch tensor and get the prediction. We did not succeed in deploying with GCP since there was technical problems. ---
 
 ### Question 23
 
@@ -467,7 +466,7 @@ We deployed our model locally with fast-api. So it was possible to upload an ima
 >
 > Answer:
 
-The implementation of monitoring was not achieved, primarily because of an abrupt shift in the project's direction. This sudden change required us to redirect our resources and efforts towards tackling the more immediate and critical challenges that had emerged, particularly those related to the size of the dataset and the model, as well as various deployment issues. Furthermore, this was also due to the fact that our monitoring was not developed yet, and became a lesser priority compared to the deployment of the gcp. This then meant that there was a lack of insight into the different issues that plagued our final version of the project, including but not excluding the issues with the deployment of the gpc. 
+--- The implementation of monitoring was not achieved, primarily because of an abrupt shift in the project's direction. This sudden change required us to redirect our resources and efforts towards tackling the more immediate and critical challenges that had emerged, particularly those related to the size of the dataset and the model, as well as various deployment issues. Furthermore, this was also due to the fact that our monitoring was not developed yet, and became a lesser priority compared to the deployment of the gcp. This then meant that there was a lack of insight into the different issues that plagued our final version of the project, including but not excluding the issues with the deployment of the gpc. ---
 
 ### Question 24
 
@@ -481,7 +480,7 @@ The implementation of monitoring was not achieved, primarily because of an abrup
 >
 > Answer:
 
-Google cloud was the only paid service we used, and in total we used 210 kr. worth of credits.
+--- Google cloud was the only paid service we used, and in total we used 210 kr. worth of credits. ---
 
 ## Overall discussion of project
 
@@ -514,9 +513,9 @@ Ideally, we would have increased our test coverage using gh actions, while also 
 
 Possibly we could also set up the docker training images in a way so that the training logs, after being saved to wandb, could be pushed to our github repository, so we also have a log of all deployed models. However, the specifics of GCP communicating with github through docker seem kinda sketchy and we're not sure how that would work with github security keys and the like. \\
 
-In terms of local reproduciability, we're kinda happy with using lightningCLI as a solution, but as we don't have an automatic way of building docker images, our reproduciabilty suffers a bit.
+In terms of local reproduciability, we're kinda happy with using lightningCLI as a solution, but as we don't have an automatic way of building docker images, our reproduciabilty suffers a bit. ---
 
- ---
+
 
 ### Question 26
 
@@ -557,8 +556,10 @@ Unexpectedly enough, we had little to no problems with DVC... this was nice.  --
 >
 > Answer:
 
-Student 204106 was in charge of establishing the model that was to be trained, and when the initial idea for the project was discarded, this student established a new customized model, more specified for the newer project. This student also helped establish the newer version of the project, given that the previous plan could not be achieved. Furthermore, the dvc, along with config files for lightning was also established by this student.
-Student 204134 was in charge of debugging the code, along with the attempts at monitoring, as given by S8. Furthermore, the development of the docker files, along with docker images was also this student's responsibility. This student also helped establish the newer version of the project, when it was determined that the previous/initial goal could no longer be fulfilled.
-Student 204164 was in charge of establishing the repository for the code. The initialization, and deployment of the gcp, along with the base code for training the model, was also the responsibility of this student. Furthermore, the student also established the link to Weights and Biases, along with Student 204134.
+--- Student 204106 was in charge of establishing the model that was to be trained, and when the initial idea for the project was discarded, this student established a new customized model, more specified for the newer project. This student also helped establish the newer version of the project, given that the previous plan could not be achieved. Furthermore, the dvc, along with config files for lightning was also established by this student. \\
 
-All members contributed to the code by training the model and debugging when needed. Since the final model is more simplified compared to the initial goal, along with the members meeting physically and also working together, it can be said that all the members contributed to the code.
+Student 204134 was in charge of debugging the code, along with the attempts at monitoring, as given by S8. Furthermore, the development of the docker files, along with docker images was also this student's responsibility. This student also helped establish the newer version of the project, when it was determined that the previous/initial goal could no longer be fulfilled. \\
+
+Student 204164 was in charge of establishing the repository for the code. The initialization, and deployment of the gcp, along with the base code for training the model, was also the responsibility of this student. Furthermore, the student also established the link to Weights and Biases, along with Student 204134. \\
+
+All members contributed to the code by training the model and debugging when needed. Since the final model is more simplified compared to the initial goal, along with the members meeting physically and also working together, it can be said that all the members contributed to the code. ---
