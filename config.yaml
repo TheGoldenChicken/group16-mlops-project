@@ -1,0 +1,16 @@
+# config.yaml
+
+fit:
+    trainer:
+        max_epochs: 10
+    model:
+        class_path: models.model.IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+
+test:
+    model:
+        class_path: models.model.IronManWhenHeIsStruckByThorInThatAvengersMovieNotTheSecondObviouslyTheFirst
+    ckpt_path: 'last'
+    trainer:
+        limit_test_batches: 100000
+
+
