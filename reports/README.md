@@ -350,7 +350,7 @@ On our github readme, we also have included instructions on how to run the exper
 
 --- We created two docker images, one for training, one for prediction. The plan was also to develop a third one which would have a bit more functionality for deployment purposes, but we didn't get around to this. \\
 
-To run out training docker image, use ' bla bla bla bla'
+To run out training docker image, use ''
 
 To run the prediction docker image, use ' bla bla bla' ---
 
@@ -367,9 +367,7 @@ To run the prediction docker image, use ' bla bla bla' ---
 >
 > Answer:
 
---- Our code is far from perfect. \\
-
-Debugging wasn't discussed beforehand ---
+--- We didn't discuss any debugging strucutre beforehand, therefore the actual methods are hard to reason about. It's sure that we didn't try to profile our code. On the other hand, the rather specific requirements set by lightning made the code somewhat profiled in some cases, which was an automatic gain. \\
 
 ## Working in the cloud
 
